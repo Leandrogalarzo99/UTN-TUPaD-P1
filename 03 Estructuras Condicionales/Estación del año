@@ -1,0 +1,30 @@
+# Ejercicio 10 : Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla si el usuario se encuentra en otoño, invierno, primavera o verano
+
+hemisferio = input("¿En qué hemisferio se encuentra? (N/S): ").upper()
+mes = input("¿Qué mes del año es?: ").lower()
+dia = int(input("¿Qué día del mes es?: "))
+
+if hemisferio == "N":
+    if (mes == "diciembre" and dia >= 21) or mes == "enero" or mes == "febrero" or (mes == "marzo" and dia <= 20):
+        print("Invierno")
+    elif (mes == "marzo" and dia >= 21) or mes == "abril" or mes == "mayo" or (mes == "junio" and dia <= 20):
+        print("Primavera")
+    elif (mes == "junio" and dia >= 21) or mes == "julio" or mes == "agosto" or (mes == "septiembre" and dia <= 20):
+        print("Verano")
+    elif (mes == "septiembre" and dia >= 21) or mes == "octubre" or mes == "noviembre" or (mes == "diciembre" and dia <= 20):
+        print("Otoño")
+    else:
+        print("Fecha inválida")
+elif hemisferio == "S":
+    if (mes == "diciembre" and dia >= 21) or mes == "enero" or mes == "febrero" or (mes == "marzo" and dia <= 20):
+        print("Verano")
+    elif (mes == "marzo" and dia >= 21) or mes == "abril" or mes == "mayo" or (mes == "junio" and dia <= 20):
+        print("Otoño")
+    elif (mes == "junio" and dia >= 21) or mes == "julio" or mes == "agosto" or (mes == "septiembre" and dia <= 20):
+        print("Invierno")
+    elif (mes == "septiembre" and dia >= 21) or mes == "octubre" or mes == "noviembre" or (mes == "diciembre" and dia <= 20):
+        print("Primavera")
+    else:
+        print("Fecha inválida")
+else:
+    print("Hemisferio inválido")
