@@ -1,0 +1,36 @@
+"""Un niño está construyendo una pirámide con bloques. En el nivel más bajo coloca n
+bloques, en el siguiente nivel uno menos (n - 1), y así sucesivamente hasta llegar al
+último nivel con un solo bloque.
+Escribí una función recursiva contar_bloques(n) que reciba el número de bloques en el
+nivel más bajo y devuelva el total de bloques que necesita para construir toda la
+pirámide."""
+
+
+
+def contar_bloques(n):
+    # Caso base: Si hay 0 o 1 bloque en el nivel más bajo, el total es n
+    if n <= 1:
+        return n
+    # Caso recursivo:
+    # Suma los bloques del nivel actual (n) más los bloques de los niveles superiores (contar_bloques(n - 1))
+    else:
+        return n + contar_bloques(n - 1)
+
+# Pruebas de la función
+print("Calculador de bloques de pirámide:")
+print(f"Bloques para una pirámide con base de 1: {contar_bloques(1)}") # Esperado: 1
+print(f"Bloques para una pirámide con base de 2: {contar_bloques(2)}") # Esperado: 3 (2 + 1)
+print(f"Bloques para una pirámide con base de 4: {contar_bloques(4)}") # Esperado: 10 (4 + 3 + 2 + 1)
+print(f"Bloques para una pirámide con base de 5: {contar_bloques(5)}") # Esperado: 15 (5 + 4 + 3 + 2 + 1)
+print(f"Bloques para una pirámide con base de 0: {contar_bloques(0)}") # Esperado: 0
+
+# Solicitar al usuario el número de bloques en la base
+try:
+    bloques_base = int(input("Ingresa el número de bloques en el nivel más bajo de la pirámide: "))
+    if bloques_base < 0:
+        print("Por favor, ingresa un número entero positivo para los bloques de la base.")
+    else:
+        total = contar_bloques(bloques_base)
+        print(f"Para una pirámide con {bloques_base} bloques en la base, se necesitan un total de {total} bloques.")
+except ValueError:
+    print("Entrada inválida. Por favor, ingresa un número entero.")
